@@ -19,19 +19,28 @@
 
 ---
 
-## Índice
+<details>
+  <summary><strong>📑 Índice</strong></summary>
 
-- [Sobre o projeto](#sobre-o-projeto)
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias](#tecnologias)
-- [Começando](#começando)
-- [Scripts disponíveis](#scripts-disponíveis)
-- [Como testar](#como-testar)
-- [Origem dos dados](#origem-dos-dados)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Decisões técnicas](#decisões-técnicas)
-- [Deploy](#deploy)
-- [Autor](#autor)
+  <br />
+
+  - 📖 [Sobre o projeto](#sobre-o-projeto)
+  - ✨ [Funcionalidades](#funcionalidades)
+  - 🛠️ [Tecnologias](#tecnologias)
+  - 🚀 [Começando](#começando)
+    - [Pré-requisitos](#pré-requisitos)
+    - [Instalação](#instalação)
+    - [Executando em desenvolvimento](#executando-em-desenvolvimento)
+    - [Gerando o build de produção](#gerando-o-build-de-produção)
+  - 📜 [Scripts disponíveis](#scripts-disponíveis)
+  - 🧪 [Como testar](#como-testar)
+  - 🔌 [Origem dos dados](#origem-dos-dados)
+  - 🗂️ [Estrutura do projeto](#estrutura-do-projeto)
+  - 🧠 [Decisões técnicas](#decisões-técnicas)
+  - 🌐 [Deploy](#deploy)
+  - 👤 [Autor](#autor)
+
+</details>
 
 ## Sobre o projeto
 
