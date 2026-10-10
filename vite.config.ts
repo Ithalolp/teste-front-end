@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/teste-front-end/',
   plugins: [react()],
   server: {
     // Usado apenas em desenvolvimento, como fallback caso o navegador bloqueie
