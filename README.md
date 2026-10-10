@@ -1,38 +1,80 @@
-# Vitrine de Produtos — Desafio Front-End Econverse
+# Teste Front-End Jr - Econverse
 
-Vitrine de produtos em React + TypeScript. Os produtos são buscados do JSON oficial
-e, ao clicar em "Comprar", um modal exibe os dados do produto selecionado.
+Vitrine de produtos com modal de detalhes, desenvolvida em React e TypeScript, consumindo os dados de um JSON externo.
 
 ## Funcionalidades
-- Página completa conforme o Figma: header, hero, categorias, vitrines com carrossel, parceiros, marcas, newsletter e rodapé
-- Produtos consumidos do JSON oficial (uma única requisição compartilhada), com carregamento, erro + "Tentar novamente" e lista vazia
-- Modal acessível (`<dialog>`) com imagem, nome, preço, descrição e seletor de quantidade; fecha com Esc, botão ou clique no fundo
-- Responsivo (4 → 3 → 2 → 1 cards por linha)
+
+- Vitrine de produtos carregada a partir do JSON da API
+- Modal com as principais informações do produto ao clicar no card
+- Layout responsivo seguindo o design do Figma
+- HTML semântico e boas práticas de SEO
 
 ## Tecnologias
-React 18, TypeScript, Vite, Sass (SCSS), Fetch API.
+
+- React
+- TypeScript
+- Vite
+- Sass
 
 ## Pré-requisitos
-Node.js 18+ e npm.
 
-## Comandos
+- [Node.js](https://nodejs.org/) 18 ou superior
+- npm
+
+## Como rodar o projeto
+
 ```bash
-npm install        # instala dependências
-npm run dev        # desenvolvimento
-npm run typecheck  # checagem de tipos
-npm run build      # build de produção (pasta dist)
-npm run preview    # visualiza o build
+# 1. Clonar o repositório
+git clone https://github.com/Ithalolp/teste-front-end.git
+
+# 2. Entrar na pasta
+cd teste-front-end
+
+# 3. Instalar as dependências
+npm install
+
+# 4. Rodar em modo desenvolvimento
+npm run dev
 ```
 
-## Estrutura
+Depois, acesse o endereço que aparecer no terminal (normalmente `http://localhost:5173`).
+
+## Como compilar
+
+```bash
+npm run build
+```
+
+Os arquivos de produção serão gerados na pasta `dist`. Para visualizar o resultado:
+
+```bash
+npm run preview
+```
+
+## Como testar
+
+```bash
+npm test
+```
+
+> Se o projeto não tiver testes automatizados, remova esta seção ou descreva o teste manual: abrir a página, conferir a vitrine e clicar em um produto para verificar o modal.
+
+## Estrutura do projeto
+
 ```
 src/
-  components/ProductShowcase | ProductCard | ProductModal
-  hooks/useProducts.ts
-  services/productService.ts
-  types/product.ts
-  styles/ (_variables, _reset, main)
+├── components/   # Componentes reutilizáveis (card, modal, vitrine)
+├── services/     # Requisição dos produtos
+├── styles/       # Arquivos Sass
+└── types/        # Tipagens TypeScript
+public/           # Arquivos estáticos
 ```
 
-## Fonte dos dados
+## Dados
+
+Os produtos são carregados de:
 https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json
+
+## Autor
+
+Ithalo - [GitHub](https://github.com/Ithalolp)
