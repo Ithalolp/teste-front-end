@@ -1,0 +1,35 @@
+// Valores estimados a partir de capturas de tela do Figma.
+// Conferir com o Inspect do Figma (cores, fontes, medidas).
+$color-text: #1a1a1a;
+$color-muted: #666;
+$color-border: #dcdcdc;
+$color-primary: #3a3ca8;
+$color-accent: #ffc800;
+$color-navy: #271c47;
+$color-bg-soft: #f2f2f2;
+$color-bg-footer: #f2f2f2;
+$radius: 4px;
+$container: 1312px;
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 32px;
+
+$bp-sm: 600px;
+$bp-md: 900px;
+$bp-lg: 1100px;
+
+@mixin button($bg: $color-primary, $color: #fff, $pad: 10px 24px) {
+  padding: $pad;
+  border: 0;
+  border-radius: $radius;
+  background: $bg;
+  color: $color;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.88;
+  }
+}

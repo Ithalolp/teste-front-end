@@ -1,0 +1,118 @@
+@use "../../styles/variables" as v;
+
+.footer {
+  background: v.$color-bg-footer;
+  color: v.$color-text;
+
+  &__inner {
+    max-width: v.$container;
+    margin: 0 auto;
+    padding: 48px v.$space-md;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) minmax(0, 2.2fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: start;
+
+    @media (max-width: v.$bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  // ---------- Logo (imagem única) ----------
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  &__logo-img {
+    display: block;
+    height: 32px; // ajuste a altura que quiser
+    width: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  &__about {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: v.$color-muted;
+    max-width: 32ch;
+  }
+
+  &__social {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a {
+      color: v.$color-navy;
+      display: inline-grid;
+      place-items: center;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 48px);
+    padding-left: clamp(0px, 3vw, 40px);
+    border-left: 1px solid v.$color-border;
+
+    @media (max-width: v.$bp-md) {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    @media (max-width: v.$bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__column-title {
+    margin: 0 0 16px;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: v.$color-navy;
+  }
+
+  &__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+
+    a {
+      font-size: 0.8125rem;
+      color: v.$color-muted;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      &:hover {
+        color: v.$color-primary;
+      }
+    }
+  }
+
+  &__legal {
+    background: #fff;
+    border-top: 1px solid v.$color-border;
+    padding: 16px v.$space-md;
+    text-align: center;
+    font-size: 0.75rem;
+    color: v.$color-muted;
+  }
+}

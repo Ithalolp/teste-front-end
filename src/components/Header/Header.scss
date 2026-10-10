@@ -1,0 +1,195 @@
+@use "../../styles/variables" as v;
+
+.header {
+  max-width: v.$container;
+  margin: 0 auto;
+  padding: 0 v.$space-md;
+
+  // ---------- Barra de benefícios (topo) ----------
+  &__benefits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(24px, 5vw, 72px);
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 14px 0 10px;
+    list-style: none;
+    font-size: 0.75rem;
+    color: v.$color-muted;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    strong {
+      color: v.$color-primary;
+      font-weight: 600;
+    }
+
+    @media (max-width: v.$bp-md) {
+      gap: v.$space-md;
+      justify-content: flex-start;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+        height: 0;
+      }
+      li {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // ---------- Linha principal ----------
+  &__main {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo search actions";
+    align-items: center;
+    gap: 24px;
+    padding: 10px 0 14px;
+
+    @media (max-width: v.$bp-sm) {
+      grid-template-columns: auto auto;
+      grid-template-areas:
+        "logo actions"
+        "search search";
+      row-gap: 10px;
+    }
+  }
+
+  // ---------- Logo (imagem única) ----------
+  &__logo {
+    grid-area: logo;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex: 0 0 auto;
+  }
+
+  &__logo-img {
+    display: block;
+    height: 36px; // ajuste a altura que quiser
+    width: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  // ---------- Busca ----------
+  &__search {
+    grid-area: search;
+    justify-self: center;
+    width: 100%;
+    max-width: 664px;
+    display: flex;
+    align-items: center;
+    background: #f4f2ef;
+    border-radius: 10px;
+    height: 44px;
+    padding-left: 16px;
+
+    @media (max-width: v.$bp-sm) {
+      max-width: none;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      font-size: 0.8125rem;
+      outline: 0;
+
+      &::placeholder {
+        color: #8a8a8a;
+      }
+    }
+
+    button {
+      display: inline-grid;
+      place-items: center;
+      padding: 0 14px;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      color: v.$color-muted;
+      cursor: pointer;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      &:hover {
+        color: v.$color-primary;
+      }
+    }
+  }
+
+  // ---------- Ações ----------
+  &__actions {
+    grid-area: actions;
+    display: flex;
+    gap: v.$space-md;
+    justify-self: end;
+
+    button {
+      padding: v.$space-sm;
+      border: 0;
+      background: transparent;
+      color: v.$color-navy;
+      cursor: pointer;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 6px;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // ---------- Navegação ----------
+  &__nav {
+    overflow-x: auto;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      gap: v.$space-lg;
+      margin: 0;
+      padding: 12px v.$space-md;
+      list-style: none;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: v.$color-muted;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    a.is-highlight {
+      color: v.$color-primary;
+      font-weight: 700;
+    }
+  }
+
+  // ---------- Responsivo ----------
+  @media (max-width: v.$bp-md) {
+    &__benefits {
+      gap: v.$space-md;
+    }
+  }
+}

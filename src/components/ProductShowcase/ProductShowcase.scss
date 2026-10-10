@@ -1,0 +1,48 @@
+@use '../../styles/variables' as v;
+
+.showcase {
+  --cols: 4;
+  max-width: v.$container; margin: 0 auto; padding: 40px v.$space-md;
+  @media (max-width: v.$bp-lg) { --cols: 3; }
+  @media (max-width: v.$bp-md) { --cols: 2; }
+  @media (max-width: v.$bp-sm) { --cols: 1; }
+
+  &__title {
+    display: flex; align-items: center; gap: v.$space-md; margin: 0 40px v.$space-sm;
+    color: v.$color-primary; font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700;
+    &::before, &::after { content: ''; flex: 1; height: 1px; background: #e6e6e6; }
+    span { flex: none; }
+    @media (max-width: v.$bp-sm) { margin-inline: 0; }
+  }
+
+  &__see-all { display: block; margin-bottom: v.$space-md; text-align: center; font-size: 0.75rem; font-weight: 700; color: v.$color-text; text-decoration: none; }
+
+  &__tabs {
+    display: flex; margin: 0 0 24px; padding: 0; list-style: none; border: 1px solid #cfcfcf; overflow-x: auto;
+    li { flex: 1; }
+    button { width: 100%; height: 42px; padding: 0 v.$space-sm; border: 0; border-right: 1px solid #cfcfcf; background: #fff; font: inherit; font-size: 0.875rem; text-transform: uppercase; color: #333; cursor: pointer; white-space: nowrap; }
+    li:last-child button { border-right: 0; }
+    button.is-active { color: v.$color-primary; font-weight: 700; }
+  }
+
+  &__carousel { position: relative; }
+  &__list {
+    display: flex; gap: 18px; margin: 0 -6px; padding: 6px 6px 14px; list-style: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 6px; scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    > li { flex: 0 0 calc((100% - (var(--cols) - 1) * 18px) / var(--cols)); scroll-snap-align: start; }
+  }
+
+  &__arrow {
+    position: absolute; top: 50%; z-index: 1; display: grid; place-items: center;
+    width: 28px; height: 28px; padding: 0; transform: translateY(-50%);
+    border: 0; border-radius: 50%; background: #fff; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3); cursor: pointer;
+    &--prev { left: -42px; }
+    &--next { right: -42px; }
+    @media (max-width: 1400px) { &--prev { left: -8px; } &--next { right: -8px; } }
+  }
+
+  &__message { text-align: center; }
+  &__error-detail { font-size: 0.75rem; color: v.$color-muted; }
+  &__retry { @include v.button; }
+}

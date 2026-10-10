@@ -1,0 +1,103 @@
+@use "../../styles/variables" as v;
+
+.newsletter {
+  background: v.$color-navy;
+  color: #fff;
+  padding: 40px v.$space-md;
+
+  &__inner {
+    max-width: v.$container;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(420px, 1.4fr);
+    gap: clamp(24px, 4vw, 64px);
+    align-items: center;
+
+    @media (max-width: v.$bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 42ch;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 8px;
+
+    @media (max-width: v.$bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__input {
+    height: 42px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+    color: v.$color-text;
+    font: inherit;
+    font-size: 0.875rem;
+
+    &::placeholder {
+      color: #8a8a8a;
+    }
+  }
+
+  &__button {
+    height: 42px;
+    padding: 0 24px;
+    border: 0;
+    border-radius: 8px;
+    background: v.$color-accent;
+    color: v.$color-navy;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+  }
+
+  &__check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+
+    input {
+      accent-color: #fff;
+    }
+  }
+
+  &__feedback {
+    margin: 4px 0 0;
+    font-size: 0.75rem;
+    color: v.$color-accent;
+  }
+}

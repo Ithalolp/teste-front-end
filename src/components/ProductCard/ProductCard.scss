@@ -1,0 +1,72 @@
+@use "../../styles/variables" as v;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 12px 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: v.$space-md 0;
+    img {
+      width: auto;
+      height: 200px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__placeholder {
+    height: 200px;
+    display: grid;
+    place-items: center;
+    color: v.$color-muted;
+    font-size: 0.875rem;
+  }
+
+  &__description {
+    margin: 0 0 v.$space-md;
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #444;
+  }
+
+  &__old-price {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: v.$color-muted;
+    text-decoration: line-through;
+  }
+
+  &__price {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__installments {
+    margin: 4px 0 0;
+    font-size: 0.75rem;
+    color: v.$color-muted;
+  }
+
+  &__shipping {
+    margin: 6px 0 v.$space-md;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: v.$color-primary;
+  }
+
+  &__button {
+    @include v.button($pad: 14px 0);
+    margin-top: auto;
+    width: 100%;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+}

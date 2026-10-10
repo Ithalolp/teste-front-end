@@ -1,0 +1,3 @@
+Exporte do Figma e salve aqui (opcional; sem eles a página usa fundo escuro):
+  hero.jpg       - fundo do banner principal (Black Friday)
+  parceiros.jpg  - fundo dos banners "Parceiros"

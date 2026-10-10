@@ -1,0 +1,212 @@
+@use "../../styles/variables" as v;
+
+// ---------- Animações ----------
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.product-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  animation: backdrop-fade-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: auto;
+
+  &.is-closing {
+    animation: backdrop-fade-out 0.16s ease-in forwards;
+  }
+
+  // ---------- Container principal ----------
+  &__content {
+    position: relative;
+    width: min(92vw, 754px);
+    max-height: 90vh;
+    background: #fff;
+    border-radius: 2px;
+    padding: 56px 48px 40px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: v.$space-lg;
+
+    animation: modal-fade-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-origin: center center;
+
+    @media (max-width: v.$bp-sm) {
+      grid-template-columns: 1fr;
+      padding: 48px 24px 24px;
+      gap: v.$space-md;
+    }
+  }
+
+  &.is-closing &__content {
+    animation: modal-fade-out 0.16s ease-in forwards;
+  }
+
+  // ---------- Botão fechar ----------
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s ease;
+    z-index: 10; // garante que fique por cima
+
+    &:hover {
+      color: v.$color-text;
+    }
+  }
+
+  // ---------- Imagem ----------
+  &__media {
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 180px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  // ---------- Info ----------
+  &__info h2 {
+    margin: 0 0 v.$space-sm;
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  &__price {
+    margin: 0 0 v.$space-md;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__description {
+    margin: 0 0 v.$space-md;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: v.$color-muted;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-bottom: v.$space-md;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: v.$color-primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // ---------- Ações ----------
+  &__actions {
+    display: flex;
+    gap: v.$space-sm;
+    align-items: stretch;
+    margin-top: v.$space-md;
+  }
+
+  &__quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 108px;
+    height: 36px;
+    border: 1px solid #cfcfcf;
+
+    button {
+      width: 32px;
+      height: 100%;
+      border: 0;
+      background: transparent;
+      font-size: 1rem;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+    }
+
+    output {
+      font-size: 0.75rem;
+    }
+  }
+
+  &__buy {
+    @include v.button($bg: v.$color-accent, $color: #1a1a1a, $pad: 0 24px);
+    height: 36px;
+    flex: 1;
+    max-width: 185px;
+    border-radius: 2px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  &__notice {
+    margin: v.$space-sm 0 0;
+    font-size: 0.75rem;
+    color: v.$color-muted;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-modal,
+  .product-modal__content {
+    animation: none !important;
+  }
+}

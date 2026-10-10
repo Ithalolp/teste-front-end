@@ -1,0 +1,16 @@
+@use '../../styles/variables' as v;
+
+.partners {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  max-width: v.$container; margin: 24px auto; padding: 0 v.$space-md;
+  @media (max-width: v.$bp-sm) { grid-template-columns: 1fr; }
+
+  &__banner {
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: v.$space-sm;
+    min-height: clamp(220px, 24vw, 350px); padding: clamp(24px, 3.4vw, 44px); color: #fff;
+    background-color: #1c1409; background-size: cover; background-position: center; border-radius: 16px;
+    h2 { margin: 0; font-size: clamp(1.75rem, 2.8vw, 2.5rem); }
+    p { margin: 0; max-width: 240px; font-size: 1rem; font-weight: 300; }
+    a { @include v.button($bg: v.$color-accent, $color: #1a1a1a, $pad: 14px 40px); margin-top: v.$space-md; font-size: 0.875rem; text-transform: uppercase; text-decoration: none; }
+  }
+}
