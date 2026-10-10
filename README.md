@@ -1,6 +1,7 @@
 # Teste Front-End Jr - Econverse
 
 Vitrine de produtos com modal de detalhes, desenvolvida em React e TypeScript, consumindo os dados de um JSON externo.
+🔗 **Demo online:** https://ithalolp.github.io/teste-front-end/
 
 ## Funcionalidades
 
